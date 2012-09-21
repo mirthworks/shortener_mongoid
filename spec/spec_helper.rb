@@ -17,7 +17,7 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 RSpec.configure do |config|
   config.include Mongoid::Matchers
   # Other things
-  Mongoid.load!(File.expand_path("../dummy/config/mongoid.yml", __FILE__))
+  Mongoid.load!(File.expand_path("../dummy/config/mongoid.yml", __FILE__), :test)
   # Clean up the database
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
